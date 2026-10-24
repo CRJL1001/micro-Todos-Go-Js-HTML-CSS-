@@ -14,6 +14,7 @@ var todos []models.Todo
 // Montrer les todos GET
 
 func GetTodos(c *gin.Context) {
+
 	c.JSON(http.StatusOK, todos)
 }
 

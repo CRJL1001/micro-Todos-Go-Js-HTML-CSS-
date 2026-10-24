@@ -12,8 +12,10 @@ func main() {
 	var router = gin.Default()
 
 	//créer le static
+	router.Static("/static", "./static")
 
 	//servir le html
+	router.GET("/", handlers.HandleHome)
 
 	//créer les routes
 	router.GET("/todos", handlers.GetTodos)
