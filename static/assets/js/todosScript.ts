@@ -1,5 +1,6 @@
 import {deleteTodo, fetchTodos, toggleTask, updateTitle} from "./requestHandler.js";
 import type {Todo} from "./types";
+import {confirmation} from "./helper.js";
 
 const todolist:HTMLElement|null= document.getElementById("todo-ul");
 const todos:Todo[]|undefined  = await fetchTodos();
@@ -66,6 +67,7 @@ todos?.forEach((todo:Todo):void => {
     delete_icon.src = `/static/assets/svg/delete.svg`;
 
     delete_btn.addEventListener("click", async ():Promise<void> => {
+        if (!confirmation()) return;
         try{
             await deleteTodo(todo.ID);
         }catch (error){

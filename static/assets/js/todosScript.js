@@ -1,4 +1,5 @@
 import { deleteTodo, fetchTodos, toggleTask, updateTitle } from "./requestHandler.js";
+import { confirmation } from "./helper.js";
 const todolist = document.getElementById("todo-ul");
 const todos = await fetchTodos();
 todos?.forEach((todo) => {
@@ -60,6 +61,8 @@ todos?.forEach((todo) => {
     delete_btn.setAttribute("aria-pressed", `${todo.Title} deletion`);
     delete_icon.src = `/static/assets/svg/delete.svg`;
     delete_btn.addEventListener("click", async () => {
+        if (!confirmation())
+            return;
         try {
             await deleteTodo(todo.ID);
         }
