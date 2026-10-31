@@ -25,3 +25,9 @@ export async function updateTitle(id, newTitle) {
         throw new Error(`HTTP ${response.status}`);
     return response.json();
 }
+export async function deleteTodo(id) {
+    const response = await fetch(`deletetodo/${id}`, { method: "DELETE" });
+    if (!response.ok)
+        throw new Error(`HTTP ${response.status}`);
+    return response.json();
+}

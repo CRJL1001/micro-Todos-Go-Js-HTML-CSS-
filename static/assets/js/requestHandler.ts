@@ -28,3 +28,9 @@ export async function updateTitle(id:string, newTitle:string): Promise<Todo> {
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return response.json();
 }
+
+export async function deleteTodo(id:string):Promise<void> {
+    const response:Response = await fetch(`deletetodo/${id}`, {method: "DELETE"});
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return response.json();
+}
