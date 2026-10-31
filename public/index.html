@@ -4,13 +4,21 @@
     <meta charset="UTF-8">
     <title>Todos</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script type="module" src="/static/assets/js/todosScript.js"></script>
     <link rel="stylesheet" href="/static/assets/style/style.css">
 </head>
 <body>
-<header class="flex justify-center gap-8 items-center mt-6">
-    <img src="/static/assets/svg/check_box.svg" alt="checkbox svg" class="w-14 h-14 brightness-0">
-    <h1 class="text-7xl leading-none text-black">Todos</h1>
-</header>
+    <header class="flex justify-center gap-8 items-center mt-6">
+        <img src="/static/assets/svg/check_box.svg" alt="checkbox svg" class="w-14 h-14 brightness-0">
+        <h1 class="text-7xl leading-none text-black">Todos</h1>
+    </header>
+    <div class="todo-list text-center w-full mt-6">
+        <h1 class="text-xl">Tâches à faire : </h1>
+        <ul id="todo-ul">
+
+        </ul>
+    </div>
+
 
 </body>
 </html>

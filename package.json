@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "concurrently": "^10.0.6",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "ts": "tsc --watch",
+    "go": "go run main.go",
+    "dev": "concurrently -k \"npm run ts\" \"npm run go\""
+  }
+}

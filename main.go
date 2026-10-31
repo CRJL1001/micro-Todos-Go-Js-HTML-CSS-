@@ -2,11 +2,15 @@ package main
 
 import (
 	"Todo/handlers"
+	"Todo/utils"
 
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
+	//seed
+	utils.Seed()
+
 	//créer le routeur
 
 	var router = gin.Default()

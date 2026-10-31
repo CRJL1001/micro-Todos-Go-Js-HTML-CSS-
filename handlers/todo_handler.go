@@ -11,6 +11,13 @@ import (
 // BDD ici un slice de todos
 var todos []models.Todo
 
+func SeedingTodos(tab []models.Todo) bool {
+	for _, todo := range tab {
+		todos = append(todos, todo)
+	}
+	return true
+}
+
 // Montrer les todos GET
 
 func GetTodos(c *gin.Context) {
