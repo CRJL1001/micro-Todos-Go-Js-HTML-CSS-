@@ -1,0 +1,14 @@
+
+#add-btn-icon {
+    width: 36px !important;
+}
+
+body {
+
+    background-size: auto;
+}
+header {
+    & > h1 {
+        color: #191919 !important;
+    }
+}

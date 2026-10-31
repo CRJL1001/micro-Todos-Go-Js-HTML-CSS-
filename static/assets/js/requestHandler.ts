@@ -29,8 +29,22 @@ export async function updateTitle(id:string, newTitle:string): Promise<Todo> {
     return response.json();
 }
 
-export async function deleteTodo(id:string):Promise<void> {
+export async function deleteTodo(id:string):Promise<Todo> {
     const response:Response = await fetch(`deletetodo/${id}`, {method: "DELETE"});
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return response.json();
+}
+
+export async function addTodo(Title: string):Promise<Todo|undefined> {
+    if (Title == ""){
+        console.error("Titre vide");
+        return;
+    }
+    const response:Response = await fetch("addtodo", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({Title, Done: false})
+    });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return response.json()
 }

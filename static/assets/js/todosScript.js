@@ -1,8 +1,9 @@
-import { deleteTodo, fetchTodos, toggleTask, updateTitle } from "./requestHandler.js";
+import { deleteTodo, fetchTodos, toggleTask, updateTitle, addTodo } from "./requestHandler.js";
 import { confirmation } from "./helper.js";
 const todolist = document.getElementById("todo-ul");
 const todos = await fetchTodos();
-todos?.forEach((todo) => {
+todos?.forEach(renderTodo);
+function renderTodo(todo) {
     const element = document.createElement("li");
     element.innerHTML = `
         <div class="inline-flex gap-4 mt-4 items-center">
@@ -75,4 +76,24 @@ todos?.forEach((todo) => {
         }
     });
     todolist?.append(element);
+}
+const addBtn = document.getElementById("add-btn");
+addBtn.addEventListener("click", async () => {
+    const textField = document.querySelector("#new-task");
+    const newTitle = textField.value;
+    if (newTitle == "") {
+        alert("Le titre de la tâche ne peut pas être vide");
+        return;
+    }
+    try {
+        const todo = await addTodo(newTitle);
+        if (todo)
+            renderTodo(todo);
+        textField.value = "";
+    }
+    catch (error) {
+        console.error(error);
+        alert("Impossible de créer la tâche, réessayer");
+        return;
+    }
 });

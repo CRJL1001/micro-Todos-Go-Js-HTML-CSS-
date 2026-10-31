@@ -31,3 +31,17 @@ export async function deleteTodo(id) {
         throw new Error(`HTTP ${response.status}`);
     return response.json();
 }
+export async function addTodo(Title) {
+    if (Title == "") {
+        console.error("Titre vide");
+        return;
+    }
+    const response = await fetch("addtodo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ Title, Done: false })
+    });
+    if (!response.ok)
+        throw new Error(`HTTP ${response.status}`);
+    return response.json();
+}
