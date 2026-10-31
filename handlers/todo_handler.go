@@ -66,3 +66,18 @@ func ToggleTodo(c *gin.Context) {
 	}
 	c.JSON(http.StatusNotFound, gin.H{"error": "id not found"})
 }
+
+//changer le nom
+
+func UpdateName(c *gin.Context) {
+	id := c.Param("ID")
+	newTitle := c.Param("Title")
+	for i, todo := range todos {
+		if todo.ID == id {
+			todos[i].Title = newTitle
+			c.JSON(http.StatusOK, todos[i])
+			return
+		}
+	}
+	c.JSON(http.StatusNotFound, gin.H{"error": "id not found"})
+}

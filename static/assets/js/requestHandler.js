@@ -19,3 +19,9 @@ export async function toggleTask(id) {
         throw new Error(`HTTP ${response.status}`);
     return response.json();
 }
+export async function updateTitle(id, newTitle) {
+    const response = await fetch(`update/${id}/${newTitle}`, { method: "PUT" });
+    if (!response.ok)
+        throw new Error(`HTTP ${response.status}`);
+    return response.json();
+}

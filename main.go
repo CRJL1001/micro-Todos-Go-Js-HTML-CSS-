@@ -26,6 +26,7 @@ func main() {
 	router.POST("/addtodo", handlers.AddTodo)
 	router.PUT("/toggle/:ID", handlers.ToggleTodo)
 	router.DELETE("/deletetodo/:ID", handlers.DeleteTodo)
+	router.PUT("/update/:ID/:Title", handlers.UpdateName)
 
 	//écouter et servire
 	router.Run(":8080")

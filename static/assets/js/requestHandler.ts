@@ -22,3 +22,9 @@ export async function toggleTask(id: string): Promise<Todo> {
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return response.json();
 }
+
+export async function updateTitle(id:string, newTitle:string): Promise<Todo> {
+    const response:Response = await fetch(`update/${id}/${newTitle}`, {method: "PUT"});
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return response.json();
+}

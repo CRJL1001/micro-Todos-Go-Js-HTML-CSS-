@@ -1,4 +1,4 @@
-import { fetchTodos, toggleTask } from "./requestHandler.js";
+import { fetchTodos, toggleTask, updateTitle } from "./requestHandler.js";
 const todolist = document.getElementById("todo-ul");
 const todos = await fetchTodos();
 todos?.forEach((todo) => {
@@ -8,17 +8,35 @@ todos?.forEach((todo) => {
             <span></span> - <button class="mod" type="button"><img alt="" class="mod-icon"></button> - <button class="toggle-btn" type="button"><img class="toggle-icon" alt=""></button>
         </div>
     `;
-    element.querySelector("span").textContent = todo.Title;
+    //title
+    const title = element.querySelector("span");
+    title.textContent = todo.Title;
+    //checkbox handling
     const checkbox = element.querySelector(".toggle-btn");
     const icon = checkbox.querySelector(".toggle-icon");
     checkbox.setAttribute("aria-label", `Toggle ${todo.Title}`);
     icon.src = `/static/assets/svg/${todo.Done ? "check_box.svg" : "check_box_outline_blank.svg"}`;
     checkbox.setAttribute("aria-pressed", String(todo.Done));
+    //edit-btn handling
     const editBtn = element.querySelector(".mod");
-    checkbox.setAttribute("aria-label", `Edit ${todo.Title}`);
-    checkbox.setAttribute("aria-presses", `Editing ${todo.Title}`);
+    editBtn.setAttribute("aria-label", `Edit ${todo.Title}`);
+    editBtn.setAttribute("aria-pressed", `Editing ${todo.Title}`);
     const editIcon = element.querySelector(".mod-icon");
     editIcon.src = `/static/assets/svg/edit.svg`;
+    editBtn.addEventListener("click", () => {
+        title.contentEditable = "true";
+        title.focus();
+    });
+    title.addEventListener("blur", async () => {
+        title.contentEditable = "false";
+        try {
+            await updateTitle(todo.ID, title.textContent);
+        }
+        catch (error) {
+            console.error(error);
+            alert("Could not update the task, please try again");
+        }
+    });
     checkbox.addEventListener("click", async () => {
         checkbox.disabled = true;
         try {
