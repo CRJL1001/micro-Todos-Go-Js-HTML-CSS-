@@ -13,3 +13,9 @@ export async function fetchTodos() {
     }
     return undefined;
 }
+export async function toggleTask(id) {
+    const response = await fetch(`/toggle/${id}`, { method: "PUT" });
+    if (!response.ok)
+        throw new Error(`HTTP ${response.status}`);
+    return response.json();
+}

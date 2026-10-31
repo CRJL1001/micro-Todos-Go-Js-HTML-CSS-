@@ -16,3 +16,9 @@ export async function fetchTodos(): Promise<Todo[]|undefined>  {
     }
     return undefined;
 }
+
+export async function toggleTask(id: string): Promise<Todo> {
+    const response:Response = await fetch(`/toggle/${id}`, {method: "PUT"});
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return response.json();
+}

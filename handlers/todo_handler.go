@@ -13,6 +13,7 @@ var todos []models.Todo
 
 func SeedingTodos(tab []models.Todo) bool {
 	for _, todo := range tab {
+		todo.ID = uuid.New().String()
 		todos = append(todos, todo)
 	}
 	return true
