@@ -18,7 +18,7 @@
         <h2 class="text-xl backdrop-blur-[2px] p-5 m-5 mr-45 rounded-xl">Moins de désordre.</h2>
     </header>
 
-    <div id="div-wrapper" class="flex relative z-10 justify-center gap-4 sm:gap-8 md:gap-16 lg:gap-32 xl:gap-80 mt-[12%]">
+    <div id="div-wrapper" class="flex relative z-10 justify-center gap-4 sm:gap-8 md:gap-16 lg:gap-32 xl:gap-80 mt-[100px]">
         <div id="info-div" class="flex flex-col gap-13 justify-center">
             <p class="text-sm">Un instant pour souffler</p>
             <h1 class="text-6xl">Fais de la place <br> à l'essentiel.</h1>
@@ -26,22 +26,22 @@
             <p class="text-sm flex items-center gap-5"><img src="/static/assets/svg/spa.svg" class="-translate-y-[3px]" alt="spa leaf">Prends le temps d'avancer.</p>
         </div>
 
-        <div id="task-div" class="relative z-10 flex flex-col p-6">
-            <div class="">
-                <p>Ton espace d'organisation</p>
-                <h1>Mes tâches</h1>
-                <p>Organiser, avancer, réussir.</p>
+        <div id="task-div" class="relative z-10 flex flex-col p-6 min-w-[500px] min-h-[700px] max-h-[900px]">
+            <div class="flex flex-col gap-3">
+                <p class="text-md">Ton espace d'organisation</p>
+                <h1 class="text-3xl" >Mes tâches</h1>
+                <p class="text-sm">Organiser, avancer, réussir.</p>
             </div>
-            <div class="new-task relative z-10 mt-4 flex justify-center text-center">
-                <form action="" >
-                    <label class="text-3xl" for="new-task">Nouvelle tâche</label><br>
-                    <div class="mt-5 flex items-center gap-2">
-                        <input id="new-task" class="border-2 rounded-sm p-3" type="text" placeholder="task name">
+            <div class="new-task my-0 relative z-10 mt-6 flex">
+                <div class="w-full">
+                    <p class="text-sm font-bold text-left" f>Nouvelle tâche ?</p>
+                    <div class="mt-2 flex items-center gap-2 text-center">
+                        <input id="new-task" class="border-2 rounded-sm p-3 w-full" type="text" placeholder="task name">
                         <button id="add-btn" class="focus:border-0" type="button"><img id="add-btn-icon" src="/static/assets/svg/add_box.svg" alt="bouton d'ajout"></button>
                     </div>
-                </form>
+                </div>
             </div>
-            <div class="todo-list relative z-10 text-center w-full mt-6">
+            <div class="todo-list relative z-10 text-center w-full mt-6 ">
                 <h1 class="text-3xl">Tâches à faire : </h1>
                 <ul id="todo-ul">
                 </ul>
