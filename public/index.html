@@ -8,12 +8,16 @@
     <link rel="stylesheet" href="/static/assets/style/style.css">
     <script src="../static/assets/js/helper.js"></script>
 </head>
-<body>
-    <header class="flex justify-center gap-8 items-center py-5">
-        <img src="/static/assets/svg/check_box.svg" alt="checkbox svg" class="w-14 h-14 brightness-0">
-        <h1 class="text-7xl leading-none">Todos</h1>
+<body class="relative">
+    <div class="pointer-events-none absolute inset-0 backdrop-blur-sm [mask-image:linear-gradient(to_right,black,transparent_100%)]" aria-hidden="true"></div>
+    <header class="relative z-10 flex justify-between items-center">
+        <div class="flex justify-center items-center gap-2 m-5 ml-45">
+            <img src="/static/assets/svg/check_box_title.svg" alt="checkbox svg" class="w-10 h-10">
+            <h1 class="text-2xl leading-none font-bold">Todos.</h1>
+        </div>
+        <h2 class="text-xl backdrop-blur-[2px] p-5 m-5 mr-45 rounded-xl">Moins de désordre.</h2>
     </header>
-    <div class="new-task mt-4 flex justify-center text-center">
+    <div class="new-task relative z-10 mt-4 flex justify-center text-center">
         <form action="" >
             <label class="text-3xl" for="new-task">Nouvelle tâche</label><br>
             <div class="mt-5 flex items-center gap-2">
@@ -22,7 +26,7 @@
             </div>
         </form>
     </div>
-    <div class="todo-list text-center w-full mt-6">
+    <div class="todo-list relative z-10 text-center w-full mt-6">
         <h1 class="text-3xl">Tâches à faire : </h1>
         <ul id="todo-ul">
         </ul>
